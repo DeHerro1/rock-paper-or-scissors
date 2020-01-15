@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+        <p></p>
+    
+  
+    <script>
+        
+
+     function computerPlay(){
+    let randm = ["rock","scissors","paper"]
+
+    let random = [Math.floor(Math.random() * randm.length)];
+    return randm[random];
+}
+
+ let playerScore = 0;
+ let computerScore = 0;
+
+    function PlayRound(playerSelection,computerSelection){
+        playerSelection = playerSelection.toLowerCase();
+
+            switch(playerSelection){
+                case 'rock':
+                    if(computerSelection === "rock"){
+                      alert( "Draw.rock draws rock ",computerSelection);
+                        
+                }
+                else if(computerSelection === "scissors"){
+                     alert("You win! rock beats scissors ",computerSelection);
+                        playerScore ++;
+                }
+                else if(computerSelection === "paper"){
+                    alert("you lose! paper beats rock ",computerSelection);
+                        computerScore ++;
+                }
+                break;
+ 
+                case 'scissors':
+                       if(computerSelection === "scissors"){
+                           alert("Draw.scissors draw scissors",computerSelection);
+                       }
+                       else if(computerSelection === "rock"){
+                           alert("You lose,rock beats scissors",computerSelection);
+                            computerScore ++;
+                       }
+                       else if(computerSelection === "paper"){
+                           alert("You win,scissors beats paper",computerSelection);
+                           playerScore ++;
+                       }
+                break;
+
+                case 'paper':
+                        if(computerSelection === "paper"){
+                            alert("Draw,paper draws paper",computerSelection);
+                        }       
+                        else if(computerSelection === "scissors"){
+                            alert("you Lose,scissors beats paper");
+                                computerScore ++;
+                        }
+                        else if(computerSelection === "rock"){
+                            alert("You win,paper beats rock");
+                            playerScore ++;
+                        }
+                break;             
+ }               
+ }
+
+
+        function finalScore(a){
+            if(a == 4 && playerScore > computerScore){
+                alert("Woow that's awesome, You won the game");
+            }
+            else if(a == 4 && playerScore < computerScore ){
+                alert("Ouch! You lose the game");
+            }
+            else if(a == 4 && (playerScore = computerScore) ){
+                alert("That's was intense, it's a draw");
+            } 
+        }
+
+        function game(){
+    var x = 1;
+    while ( x >= 1 && x <= 3){
+         ++x;
+    var Choice=prompt("Type rock,paper or scissors to play");
+           playerSelection = Choice;
+        PlayRound(playerSelection, computerPlay());
+        finalScore(x);
+         
+    };
+        }
+        game();
+
+
+
+  
+        
+        
+    </script>
+</body>
+</html>
